@@ -12,6 +12,33 @@ body {
   color: #111;
 }
 
+/* -------------------------------------------------- */
+/* Demo warning overlay                               */
+/* -------------------------------------------------- */
+
+.demo-warning {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%) rotate(-20deg);
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px 24px;
+
+  z-index: 9999;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
 /* ---- Header ---- */
 header {
   position: sticky;
