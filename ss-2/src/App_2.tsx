@@ -182,7 +182,7 @@ const Scene = () => {
         scale={[1, 1, 1]}
       >
         <planeGeometry args={[200, 200]} />
-        <meshPhongMaterial color="#000000" />
+        <meshPhongMaterial color="#d4bfbf" />
       </mesh>
     );
   };
@@ -237,7 +237,7 @@ const Scene = () => {
         phase={(4 * Math.PI) / 3}
       />
 
-      <FadePlane fadeStart={1} fadeDuration={4} />
+      <FadePlane fadeStart={4} fadeDuration={3} />
 
       {/* <Box /> */}
       <Model />
