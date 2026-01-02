@@ -1,0 +1,22 @@
+/* Base document sizing */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  vertical-align: middle;
+}
+
+/* R3F root should not enforce layout */
+#r3f-root {
+  position: relative;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  position: relative;
+}
+
+/* ❌ DO NOT style canvas globally */
+/* Canvas sizing is handled in styles.css per-container */

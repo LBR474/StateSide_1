@@ -1,0 +1,224 @@
+/* ---- Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #f7f7f7;
+  color: #111;
+}
+
+/* ---- Header ---- */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: white;
+  border-bottom: 1px solid #979797;
+  z-index: 10;
+}
+
+.header-inner {
+  width: inherit;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- Left / Right groups ---- */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+
+
+/* ---- Menus ---- */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---- Search ---- */
+.search_bar input {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+/* ---- Icons ---- */
+.icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #111;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.icon:hover svg {
+  stroke: #555;
+}
+
+/* ---- Sub Navigation ---- */
+.subnav {
+  width: 100%;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #979797;
+}
+
+.subnav nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+}
+
+.subnav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.subnav li {
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.subnav li:hover {
+  text-decoration: underline;
+}
+
+/* ---- Sale Highlight ---- */
+.subnav li.sale {
+  color: #c00;
+  font-weight: 600;
+}
+
+
+.r3f-logo {
+  width: inherit;       /* adjust to taste */
+  height: inherit;
+  margin-left: 0px;
+
+  position: relative;
+  overflow: hidden;  /* IMPORTANT */
+  background: rgba(255, 255, 255, 0.2);
+  
+
+}
+.r3f-logo canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.SS-logo {
+  width: 261px;
+  height: 56px;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  /* border: 2px rgb(0, 255, 34) solid; */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+nav li:hover {
+  text-decoration: underline;
+}
+
+/* ---- Main ---- */
+main {
+  width: 100%;
+}
+
+.hero {
+  height: 80vh;
+  background: #ddd;
+  /* placeholder for R3F canvas later */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: white;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 14px;
+}
