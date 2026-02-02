@@ -157,7 +157,7 @@ const Scene = () => {
     const bloomObj = { value: 0 };
 
     const tween = gsap.to(bloomObj, {
-      value: 0.4, // target bloom strength
+      value: 0.8, // target bloom strength
       duration: 2,
       ease: "power2.out",
       onUpdate: () => setBloomIntensity(bloomObj.value),
@@ -200,7 +200,7 @@ const Scene = () => {
             intensity={bloomIntensity}
             luminanceThreshold={0.2}
             luminanceSmoothing={0.9}
-            radius={0.6}
+            radius={0.2}
           />
         </EffectComposer>
       )}
