@@ -124,7 +124,7 @@ const Model = ({
 
   return (
     <group ref={rootRef} position={[startX, 0.5, -1]}>
-      <primitive object={sceneClone.current!} scale={2.5} />
+      <primitive object={sceneClone.current!} scale={2.0} />
     </group>
   );
 };
