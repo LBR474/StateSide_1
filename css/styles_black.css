@@ -1,0 +1,263 @@
+/* ---- Reset ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* -------------------------------------------------- */
+/* Demo warning overlay                               */
+/* -------------------------------------------------- */
+
+.demo-warning {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 80%;
+  transform: translateX(-50%) rotate(-20deg);
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+
+  font-size: 24px;
+  font-weight: bold;
+  padding: 12px 24px;
+
+  z-index: 9999;
+  pointer-events: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* ---- Header ---- */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  color: white;
+  border-bottom: 1px solid #979797;
+  z-index: 10;
+}
+
+.header-inner {
+  width: inherit;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---- Left / Right groups ---- */
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+
+
+/* ---- Menus ---- */
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ---- Search ---- */
+.search_bar input {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+/* ---- Icons ---- */
+.icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.icon:hover svg {
+  stroke: #555;
+}
+
+/* ---- Sub Navigation ---- */
+.subnav {
+  width: 100%;
+  background-color: #000000;
+  color: white;
+  border-bottom: 1px solid #979797;
+}
+
+.subnav nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+}
+
+.subnav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.subnav li {
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.subnav li:hover {
+  text-decoration: underline;
+}
+
+/* ---- Sale Highlight ---- */
+.subnav li.sale {
+  color: #c00;
+  font-weight: 600;
+}
+
+
+.r3f-logo {
+  width: 100%;       /* adjust to taste */
+  height: inherit;
+  margin-left: 0px;
+
+  position: relative;
+  overflow: hidden;  /* IMPORTANT */
+  background: rgba(0, 0, 0, 0.2);
+  
+
+}
+.r3f-logo canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  /* border: 2px green solid; */
+}
+
+.SS-logo {
+  width: 100vw;
+  height: 10vh;
+  padding: 5px;
+  /* border: 2px red solid; */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  /* border: 2px rgb(0, 255, 34) solid; */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+nav li {
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+nav li:hover {
+  text-decoration: underline;
+}
+
+/* ---- Main ---- */
+main {
+  width: 100%;
+}
+
+.hero {
+  height: 80vh;
+  background: #000000;
+  /* placeholder for R3F canvas later */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.hero_image {
+  width: inherit;
+  
+  height: inherit;
+  object-fit: cover;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.card {
+  background: rgb(0, 0, 0);
+  color: white;
+  padding: 32px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* ---- Footer ---- */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 14px;
+}
