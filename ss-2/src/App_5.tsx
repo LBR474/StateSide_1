@@ -24,6 +24,8 @@ const Floor = () => {
 
 /* ---------------- MODEL ---------------- */
 
+/* ---------------- MODEL ---------------- */
+
 const Model = ({
   startX,
   onIntroComplete,
@@ -35,7 +37,8 @@ const Model = ({
 }) => {
   const gltf = useLoader(GLTFLoader, "models/SS-1.glb");
   const rootRef = useRef<THREE.Group>(null!);
-  gltf.scene.rotation.y = Math.PI; // pre-rotate to face forward
+  const { viewport } = useThree();
+  //const FINAL_Y = Math.PI;
 
   // clone once so each instance is independent
   const sceneClone = useRef<THREE.Group | null>(null);
@@ -43,16 +46,42 @@ const Model = ({
     sceneClone.current = gltf.scene.clone();
   }
 
-  // base orientation via quaternion (once)
+  /* ---------- base orientation ---------- */
+
   useEffect(() => {
     if (!rootRef.current) return;
-
     const euler = new THREE.Euler(Math.PI / -48, Math.PI, 0, "XYZ");
-
     rootRef.current.quaternion.setFromEuler(euler);
-  }, [gltf]);
+  }, []);
 
-  // material glow toggle
+  /* ---------- responsive scale to 90% height ---------- */
+
+  useEffect(() => {
+    if (!rootRef.current || !sceneClone.current) return;
+
+    // measure model bounds
+    const box = new THREE.Box3().setFromObject(sceneClone.current);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+
+    const modelHeight = size.y;
+    const modelWidth = size.x;
+
+    const targetHeight = viewport.height * 0.9;
+    const targetWidth = viewport.width * 0.9;
+
+    // compute both candidate scales
+    const heightScale = targetHeight / modelHeight;
+    const widthScale = targetWidth / modelWidth;
+
+    // choose smaller → guarantees fit in both directions
+    const scale = Math.min(heightScale, widthScale);
+
+    rootRef.current.scale.setScalar(scale);
+  }, [viewport.height]);
+
+  /* ---------- glow material toggle ---------- */
+
   useEffect(() => {
     const mat = new THREE.MeshStandardMaterial({
       color: 0xffffff,
@@ -72,7 +101,7 @@ const Model = ({
     });
   }, [glow]);
 
-  // intro slide animationconst ranIntro = useRef(false);
+  /* ---------- intro animation (spin + overshoot) ---------- */
 
   const ranIntro = useRef(false);
 
@@ -83,26 +112,25 @@ const Model = ({
     const dir = startX > 0 ? -1 : 1;
     const overshootX = dir * 16;
 
+    
+
     const tl = gsap.timeline({
       onComplete: () => {
-        // snap clean final rotation
-        gsap.set(rootRef.current.rotation, { y: 0 });
+        gsap.set(rootRef.current.rotation, { y: Math.PI / 1 });
         onIntroComplete();
       },
     });
 
-    // 🌀 spin whole GLB while approaching (about one full turn)
     tl.to(
       rootRef.current.rotation,
       {
-        y: "+=6.28", // ~2π radians
+        y: "+=6.28",
         duration: 1.6,
         ease: "none",
       },
       0,
     );
 
-    // 🚀 move in with overshoot
     tl.to(
       rootRef.current.position,
       {
@@ -115,6 +143,7 @@ const Model = ({
       x: 0,
       duration: 1.6,
       ease: "power2.out",
+      
     });
 
     return () => {
@@ -122,12 +151,16 @@ const Model = ({
     };
   }, [onIntroComplete, startX]);
 
+
   return (
-    <group ref={rootRef} position={[startX, 0.5, -1]}>
-      <primitive object={sceneClone.current!} scale={2.0} />
+    <group ref={rootRef} position={[startX, 0.5, -1]}
+    
+    >
+      <primitive object={sceneClone.current!} />
     </group>
   );
 };
+
 
 /* ---------------- SCENE ---------------- */
 
